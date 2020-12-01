@@ -1,0 +1,83 @@
+{% extends "design.html" %}
+
+{% block main %}
+<! DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<style>
+        body
+        {
+          background-image: url('/static/img/cv 19 wp.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+
+        h1
+        {
+          text-align: center;
+          text-shadow: 2.5px 2.5px 7.5px #FF0000;
+        }
+
+        .container
+        {
+          margin: 0;
+          background: yellow;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-right: -50%;
+          transform: translate(-50%, -50%);
+        }
+
+        p
+        {
+          text-align: center;
+          font-weight: bold;
+        }
+
+        h3
+        {
+          text-align: center;
+          font-weight: bold;
+          text-decoration: underline;
+        }
+
+        .f
+        {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          color: black;
+          text-align: center;
+          text-shadow: 2.5px 2.5px 7.5px #FF0000;
+          font-weight: bold;
+        }
+
+        </style>
+</head>
+
+<body>
+
+<h1>Information</h1>
+
+<div class="container">
+<p>The COVID-19 pandemic, also known as the coronavirus pandemic, is an ongoing pandemic of coronavirus disease 2019 (COVID-19)</p>
+<p>caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2), first identified in December 2019 in Wuhan, China.</p>
+<p>The outbreak was declared a Public Health Emergency of International Concern in January 2020 and a pandemic in March 2020.</p>
+<h3>To Prevent COVID-19</h3>
+<p>"Wear A Mask"</p>
+<p>"Clean The Hands"</p>
+<p>"Keep A Safe Distance"</p>
+<p>for the latest status, please visit</p>
+<p>https://www.worldometers.info/coronavirus/</p>
+</div>
+
+</body>
+
+</html>
+
+{% endblock %}

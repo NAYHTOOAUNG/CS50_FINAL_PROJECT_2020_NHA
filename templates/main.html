@@ -1,0 +1,61 @@
+{% extends "design.html" %}
+
+{% block main %}
+    <h2 style="color:white;">Review</h2>
+    <button class="filter btn-block btn btn-dark text-left">Filter <img src="/static/arrow_down.svg" class="float-right" id ="arrow" height="16px"></button>
+    <div class="filtercontent p-3 bg-light border border-dark" style="display: none">
+            <div class="form-inline">
+                <div class="form-group">
+                    <select class="custom-select" id="searchcategory">
+                        <option selected>--Category--</option>
+                        <option value="0">UID</option>
+                        <option value="1">First Name</option>
+                        <option value="2">Last Name</option>
+                        <option value="3">Birthdate</option>
+                        <option value="4">Age</option>
+                        <option value="5">Gender</option>
+                        <option value="6">Swab</option>
+                        <option value="7">Serology</option>
+                    </select>
+                </div>
+                <div class="form-group mx-3">
+                    <input type="text" class="form-control"id="query">
+                </div>
+                <button class="btn btn-primary mr-3" onclick="EditFilter()">Submit</button>
+                <button class="btn btn-danger" onclick="location.href='/';">Reset</button>
+            </div>
+    </div>
+    <table class="table mt-4" id="patient">
+        <thead class="thead-dark">
+            <tr>
+                <th>UID <img src="/static/arrow_down.svg" id ="arrow0" height="15px" onclick="Sort(0)"></th>
+                <th>First Name <img src="/static/arrow_down.svg" id ="arrow1" height="15px" onclick="Sort(1)"></th>
+                <th>Last Name <img src="/static/arrow_down.svg" id ="arrow2" height="15px" onclick="Sort(2)"></th>
+                <th>Birthdate <img src="/static/arrow_down.svg" id ="arrow3" height="15px" onclick="Sort(3)"></th>
+                <th>Age <img src="/static/arrow_down.svg" id ="arrow4" height="15px" onclick="Sort(4)"></th>
+                <th>Gender <img src="/static/arrow_down.svg" id ="arrow5" height="15px" onclick="Sort(5)"></th>
+                <th>Swab <img src="/static/arrow_down.svg" id ="arrow6" height="15px" onclick="Sort(6)"></th>
+                <th>Serology <img src="/static/arrow_down.svg" id ="arrow7" height="15px" onclick="Sort(7)"></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for patient in db_patient %}
+            <tr class= "text-center" style="background-color:#FFFFFF">
+                <td>{{ patient[0] }}</td>
+                <td>{{ patient[1] }}</td>
+                <td>{{ patient[2] }}</td>
+                <td>{{ patient[3] }}</td>
+                <td>{{ patient[4] }}</td>
+                <td>{{ patient[5] }}</td>
+                <td>{{ patient[6] }}</td>
+                <td>{{ patient[7] }}</td>
+                <td><form action="/delete" method="POST">
+                <input type="hidden" name="uid" id="uid" value={{ patient[0] }}>
+                <button type="submit">Delete</button>
+                </form></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
